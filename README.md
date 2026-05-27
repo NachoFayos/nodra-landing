@@ -65,3 +65,17 @@ El backend está desarrollado en PHP y centraliza la configuración sensible med
 Este proyecto fue desarrollado originalmente como una landing corporativa y posteriormente saneado para portfolio.
 
 No representa un producto comercial activo y no contiene credenciales reales en el repositorio.
+
+## Capturas
+
+### Página principal
+
+![Página principal](assets/docs/home.png)
+
+### Asistente IA para WhatsApp
+
+![Asistente IA para WhatsApp](assets/docs/whatsapp-assistant.png)
+
+### Vista responsive
+
+![Vista responsive](assets/docs/mobile-view.png)

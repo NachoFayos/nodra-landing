@@ -42,23 +42,25 @@ asistente-whatsapp.html
 avisolegal.html
 politicaprivacidad.html
 politicacookies.html
+```
 
-El archivo .env está excluido del repositorio para evitar publicar credenciales o configuración privada.
+El archivo `.env` está excluido del repositorio para evitar publicar credenciales o configuración privada.
 
-Funcionalidades principales
-Formularios
+## Funcionalidades principales
+
+### Formularios
 
 Los formularios están preparados para enviar datos al backend PHP, validar la información recibida y proteger el envío mediante reCAPTCHA v3.
 
-Cookies
+### Cookies
 
 El proyecto incluye un sistema de consentimiento de cookies con posibilidad de registrar la elección del usuario en base de datos.
 
-Backend
+### Backend
 
 El backend está desarrollado en PHP y centraliza la configuración sensible mediante variables de entorno. Incluye conexión a PostgreSQL mediante PDO.
 
-Estado del proyecto
+## Estado del proyecto
 
 Este proyecto fue desarrollado originalmente como una landing corporativa y posteriormente saneado para portfolio.
 

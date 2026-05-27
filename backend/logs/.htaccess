@@ -1,0 +1,23 @@
+# Archivo: /backend/logs/.htaccess
+# Protección del directorio de logs
+# Este archivo previene el acceso directo a los archivos de log desde el navegador
+
+# Denegar acceso a todos los archivos
+<Files "*">
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+# Alternativa más moderna (Apache 2.4+)
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+
+# Prevenir listado de directorio
+Options -Indexes
+
+# Bloquear tipos de archivo específicos
+<FilesMatch "\.(log|txt|json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

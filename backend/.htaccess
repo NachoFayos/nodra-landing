@@ -1,0 +1,17 @@
+# backend/.htaccess
+# Configuración simple para permitir acceso a API
+
+# Permitir acceso a archivos PHP
+<Files "*.php">
+    Allow from all
+</Files>
+
+# Configurar CORS básico
+<IfModule mod_headers.c>
+    Header add Access-Control-Allow-Origin "*"
+    Header add Access-Control-Allow-Headers "Content-Type"
+    Header add Access-Control-Allow-Methods "POST, GET, OPTIONS"
+</IfModule>
+
+# Configurar tipos MIME
+AddType application/json .json

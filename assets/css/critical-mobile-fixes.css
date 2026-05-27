@@ -1,0 +1,1099 @@
+/* ========== CRITICAL MOBILE FIXES - VERSIÓN CORREGIDA COMPLETA ========== */
+/* Este archivo corrige TODOS los problemas: logo, floating cards, menú y scroll */
+
+/* ========== 1. CORRECCIONES ESPECÍFICAS DE SCROLL ========== */
+
+/* Permitir scroll en toda la página - SIN BLOQUEOS */
+html, body {
+  scroll-behavior: smooth;
+  touch-action: auto; /* CAMBIADO: usar auto para evitar intervenciones */
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  /* iOS scroll fix */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hero section - COMPLETAMENTE NO BLOQUEANTE */
+.hero {
+  touch-action: auto !important; /* CAMBIADO: auto en lugar de pan-y */
+  pointer-events: auto !important;
+  overflow: visible !important;
+  position: relative;
+  min-height: 100vh;
+}
+
+.hero * {
+  touch-action: auto !important; /* CAMBIADO: auto para todos los elementos */
+}
+
+/* Background elements - NO bloquear pero sin touch-action restrictivo */
+.animated-bg,
+.bg-orb,
+.hero::before,
+.hero::after {
+  pointer-events: none !important;
+  /* REMOVIDO: touch-action: none - causa problemas */
+}
+
+/* Botones y enlaces - touch-action más permisivo */
+.btn-primary,
+.btn-secondary,
+.cta-button,
+a {
+  pointer-events: auto !important;
+  touch-action: auto !important; /* CAMBIADO: auto es más seguro */
+  cursor: pointer;
+  z-index: 101;
+  position: relative;
+}
+
+/* Formularios - solo manipulation cuando sea necesario */
+input, textarea, button, select {
+  touch-action: manipulation !important; /* MANTENIDO: necesario para inputs */
+  pointer-events: auto !important;
+}
+
+/* ========== 2. HEADER CON LOGO MÁS GRANDE ========== */
+@media (max-width: 768px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0.5rem 0; /* Reducido ligeramente */
+    background: rgba(17, 24, 39, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 70px; /* Altura fija */
+    min-height: 70px;
+  }
+
+  .header-content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    position: relative;
+  }
+
+  /* Logo centrado y MÁS GRANDE */
+  .logo {
+    grid-column: 2;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo img {
+    height: 55px !important; /* AUMENTADO de 45px a 55px */
+    width: auto !important;
+    max-height: 55px !important;
+  }
+
+  /* Ocultar navegación desktop */
+  .nav,
+  .desktop-nav,
+  .cta-button:not(.mobile-cta),
+  .desktop-cta {
+    display: none !important;
+  }
+
+  /* Menú hamburguesa - CORREGIDO PARA VISIBILIDAD */
+  .mobile-menu-toggle {
+    grid-column: 3;
+    justify-self: end;
+    display: flex !important;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.75rem;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    outline: none;
+    z-index: 1001;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    /* FORZAR VISIBILIDAD */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .mobile-menu-toggle:hover,
+  .mobile-menu-toggle:focus {
+    background: rgba(0, 179, 164, 0.2);
+    border-color: var(--primary-500);
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+  }
+
+  .hamburger-line {
+    width: 24px;
+    height: 3px;
+    background: var(--neutral-300);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+    background: var(--primary-500);
+  }
+
+  .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+    background: var(--primary-500);
+  }
+}
+
+@media (min-width: 769px) {
+  .logo img {
+    height: 52px !important; /* También más grande en desktop */
+    width: auto !important;
+  }
+}
+
+/* ========== 3. HERO SECTION CON FLOATING CARDS VISIBLES Y ANIMADAS ========== */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    padding-top: 85px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    /* CORREGIDO: sin restricciones de touch */
+    touch-action: auto !important;
+    overflow-y: visible !important;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 1rem 0 2rem;
+    min-height: calc(100vh - 85px);
+    align-content: center;
+    justify-items: center;
+    /* CORREGIDO: sin restricciones de touch */
+    touch-action: auto !important;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .hero-content {
+    order: 2;
+    text-align: center;
+    padding: 0 1rem;
+    z-index: 100 !important;
+    position: relative;
+    pointer-events: auto !important;
+    /* CORREGIDO: permitir scroll natural */
+    touch-action: auto !important;
+  }
+
+  .hero-visual {
+    order: 1;
+    height: 400px !important; /* CORREGIDO: altura específica */
+    position: relative !important;
+    display: block !important; /* CORREGIDO: asegurar que se muestre */
+    margin: 2rem 0;
+    z-index: 1;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* FLOATING CARDS CORREGIDAS - VISIBLES Y ANIMADAS */
+  .floating-card {
+    position: absolute !important;
+    width: 180px !important;
+    padding: 1rem !important;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    
+    /* ANIMACIÓN RESTAURADA */
+    animation: floatMobile 6s ease-in-out infinite !important;
+    
+    /* NO bloquear scroll */
+    pointer-events: none !important;
+    /* REMOVIDO: touch-action que causa problemas */
+    z-index: 5;
+    
+    /* Asegurar visibilidad */
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Distribución específica para móvil */
+  .floating-card:nth-child(1) {
+    top: 5% !important;
+    left: 5% !important;
+    animation-delay: 0s !important;
+  }
+
+  .floating-card:nth-child(2) {
+    top: 5% !important;
+    right: 5% !important;
+    animation-delay: -1.5s !important;
+  }
+
+  .floating-card:nth-child(3) {
+    bottom: 5% !important;
+    left: 5% !important;
+    animation-delay: -3s !important;
+  }
+
+  .floating-card:nth-child(4) {
+    bottom: 5% !important;
+    right: 5% !important;
+    animation-delay: -4.5s !important;
+  }
+
+  /* Animación específica para móvil */
+  @keyframes floatMobile {
+    0%, 100% { 
+      transform: translateY(0px) scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    25% { 
+      transform: translateY(-8px) scale(1.02) rotate(0.5deg);
+      opacity: 0.9;
+    }
+    50% { 
+      transform: translateY(-12px) scale(1.01) rotate(-0.3deg);
+      opacity: 1;
+    }
+    75% { 
+      transform: translateY(-6px) scale(1.03) rotate(0.2deg);
+      opacity: 0.95;
+    }
+  }
+
+  /* Contenido de las cards */
+  .floating-card .card-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .floating-card h4 {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.2;
+  }
+
+  .floating-card p {
+    font-size: 0.8rem !important;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  /* Hero content mejorado */
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+    padding: 0 0.5rem;
+    background: linear-gradient(135deg, white 0%, var(--primary-500) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none; /* Remover text-shadow para gradientes */
+    position: relative;
+    z-index: 15 !important;
+    cursor: text;
+    user-select: text;
+  }
+
+  .hero-content p {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0 0.5rem;
+    max-width: none;
+    color: var(--neutral-300);
+    user-select: text;
+    cursor: text;
+  }
+
+  .hero-buttons {
+    position: relative;
+    z-index: 102;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    display: block;
+    pointer-events: auto !important;
+    /* CORREGIDO: auto para evitar bloqueos */
+    touch-action: auto !important;
+    cursor: pointer;
+    width: 100% !important;
+    max-width: 280px !important;
+    text-align: center !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Prevenir zoom accidental */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+/* ========== 4. MENÚ MÓVIL COMPLETAMENTE CORREGIDO ========== */
+@media (max-width: 768px) {
+  /* Overlay para cerrar menú - CORREGIDO */
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    /* FORZAR CREACIÓN DEL LAYER */
+    transform: translateZ(0);
+  }
+
+  .mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Menú móvil corregido - COMPLETAMENTE VISIBLE */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.98) 0%, rgba(31, 41, 55, 0.98) 100%);
+    backdrop-filter: blur(25px);
+    border-right: 1px solid rgba(0, 179, 164, 0.3);
+    z-index: 999;
+    padding: 90px 2rem 3rem;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.2rem;
+    overflow-y: auto;
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5);
+    /* FORZAR VISIBILIDAD */
+    opacity: 1 !important;
+    transform: translateZ(0);
+  }
+
+  .mobile-nav.active {
+    left: 0;
+  }
+
+  /* Botón de cerrar (X) - MEJORADO */
+  .mobile-nav-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    line-height: 1;
+    /* FORZAR VISIBILIDAD */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .mobile-nav-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #ef4444;
+    transform: rotate(90deg);
+  }
+
+  /* Enlaces del menú móvil - COMPLETAMENTE VISIBLES */
+  .mobile-nav a {
+    color: var(--neutral-300) !important;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 1.2rem 2rem;
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    margin: 0.4rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    
+    /* ESTADO NORMAL - Fondo sutil pero VISIBLE */
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    transform: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    
+    /* FORZAR VISIBILIDAD */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+/* Antes había estilos en :hover, :focus, :active. */
+.mobile-nav a:hover,
+.mobile-nav a:focus-visible {          /* usa :focus-visible, no :focus */
+  background: linear-gradient(135deg, rgba(0,179,164,.2), rgba(0,179,164,.1)) !important;
+  border-color: var(--primary-500) !important;
+  color: var(--primary-500) !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 25px rgba(0,179,164,.3) !important;
+}
+
+/* Estado por defecto igual para TODAS (incluida la primera) */
+.mobile-nav a {
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  color: var(--neutral-300) !important;
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1) !important;
+}
+
+/* Evitar “quedarse pegado” en móviles */
+.mobile-nav a:active {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Opcional: quita el flash azul al tocar en iOS/Android */
+a, button { -webkit-tap-highlight-color: transparent; }
+
+  .mobile-nav a:focus {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 3px;
+  }
+
+  /* NO aplicar efectos hover a elementos por defecto - CORREGIDO */
+  .mobile-nav a:not(:hover):not(:focus):not(.btn-primary):not(.mobile-cta) {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: var(--neutral-300) !important;
+    transform: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Botón CTA del menú móvil */
+  .mobile-nav .btn-primary,
+  .mobile-nav .mobile-cta {
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-600)) !important;
+    color: white !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    padding: 1.3rem 2.5rem;
+    box-shadow: 0 8px 20px rgba(0, 179, 164, 0.4);
+    border: 1px solid var(--primary-500) !important;
+  }
+
+  .mobile-nav .btn-primary:hover,
+  .mobile-nav .mobile-cta:hover {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-700)) !important;
+    transform: translateY(-4px) scale(1.03) !important;
+    box-shadow: 0 15px 30px rgba(0, 179, 164, 0.5) !important;
+  }
+
+  /* Estado del body cuando menú está abierto */
+  body.menu-open {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+    /* REMOVIDO: touch-action que causa problemas */
+  }
+
+  /* Header cuando menú está abierto */
+  body.menu-open .header {
+    background: rgba(17, 24, 39, 1);
+    border-bottom: 1px solid var(--primary-500);
+  }
+
+  body.menu-open .mobile-menu-toggle .hamburger-line {
+    box-shadow: 0 0 10px var(--primary-500);
+  }
+
+  /* Animaciones de entrada para los enlaces */
+  .mobile-nav.active a {
+    animation: slideInFromLeft 0.6s ease-out forwards;
+  }
+
+  .mobile-nav.active a:nth-child(1) { animation-delay: 0.1s; }
+  .mobile-nav.active a:nth-child(2) { animation-delay: 0.2s; }
+  .mobile-nav.active a:nth-child(3) { animation-delay: 0.3s; }
+  .mobile-nav.active a:nth-child(4) { animation-delay: 0.4s; }
+  .mobile-nav.active a:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Partículas decorativas */
+  .menu-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(0, 179, 164, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(0, 179, 164, 0.08) 0%, transparent 50%);
+    animation: particleFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes particleFloat {
+    0%, 100% { 
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% { 
+      transform: translate(10px, -15px) rotate(2deg);
+      opacity: 0.6;
+    }
+  }
+}
+
+/* ========== 5. CONTAINER Y SECCIONES RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem !important;
+    max-width: 100%;
+  }
+
+  /* Secciones con padding correcto */
+  .services,
+  .about,
+  .use-cases,
+  .contact {
+    padding: 3rem 0 !important;
+  }
+
+  .section-header {
+    margin-bottom: 2rem !important;
+    padding: 0 0.5rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+    line-height: 1.3 !important;
+  }
+
+  .section-header p {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* ========== 6. OPTIMIZACIONES PARA MÓVILES PEQUEÑOS ========== */
+@media (max-width: 480px) {
+  .logo img {
+    height: 50px !important; /* Ligeramente más pequeño en móviles muy pequeños */
+  }
+
+  .hero {
+    padding-top: 75px;
+  }
+
+  .hero-visual {
+    height: 350px !important;
+  }
+
+  .floating-card {
+    width: 160px !important;
+    padding: 0.8rem !important;
+  }
+
+  .floating-card h4 {
+    font-size: 0.85rem;
+  }
+
+  .floating-card p {
+    font-size: 0.75rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.9rem 1.2rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  .mobile-nav {
+    width: 100%;
+    max-width: 100%;
+    padding: 80px 1.5rem 2rem;
+  }
+
+  .mobile-nav a {
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+    max-width: 300px;
+  }
+
+  .mobile-menu-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hamburger-line {
+    width: 20px;
+  }
+}
+
+/* ========== 7. MÓVILES EXTRA PEQUEÑOS ========== */
+@media (max-width: 360px) {
+  .hero-content h1 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .floating-card {
+    padding: 0.8rem;
+    width: 150px !important;
+  }
+
+  .mobile-nav {
+    padding: 85px 1rem 2rem;
+  }
+}
+
+/* ========== 8. LANDSCAPE MÓVIL ========== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-visual {
+    height: 250px !important;
+  }
+
+  .floating-card {
+    width: 140px !important;
+    padding: 0.6rem !important;
+  }
+
+  .floating-card h4 {
+    font-size: 0.8rem;
+  }
+
+  .floating-card p {
+    font-size: 0.7rem;
+  }
+
+  .mobile-nav {
+    padding: 70px 1.5rem 1rem;
+    gap: 0.8rem;
+  }
+
+  .mobile-nav a {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ========== 9. DESKTOP - ASEGURAR FUNCIONAMIENTO CORRECTO ========== */
+@media (min-width: 769px) {
+  .floating-card {
+    pointer-events: auto !important;
+    cursor: default;
+  }
+
+  .hero-content {
+    pointer-events: auto !important;
+  }
+
+  /* Ocultar elementos móviles en desktop */
+  .mobile-menu-toggle,
+  .mobile-nav,
+  .mobile-nav-overlay,
+  .mobile-nav-close {
+    display: none !important;
+  }
+
+  /* Mostrar elementos desktop */
+  .desktop-nav,
+  .nav,
+  .desktop-cta {
+    display: block !important;
+  }
+
+  /* Asegurar que el header funciona en desktop */
+  .header-content {
+    display: flex !important;
+    grid-template-columns: none !important;
+    justify-content: space-between;
+  }
+}
+
+/* ========== 10. ESTADOS DE FOCUS MEJORADOS PARA ACCESIBILIDAD ========== */
+@media (max-width: 768px) {
+  .mobile-nav a:focus {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+  }
+
+  .mobile-menu-toggle:focus {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+  }
+
+  .hero-content *:focus {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+  }
+}
+
+/* ========== 11. PERFORMANCE Y SUAVIDAD ========== */
+@media (max-width: 768px) {
+  /* Asegurar que no hay overflow horizontal */
+  body {
+    overflow-x: hidden !important;
+    /* CORREGIDO: sin restricciones de touch */
+    touch-action: auto;
+  }
+
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevenir overflow horizontal */
+  .hero,
+  .hero-grid,
+  .hero-visual {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Transiciones suaves */
+  .floating-card,
+  .hero-content,
+  .mobile-nav a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* ========== 12. FIX ESPECÍFICO PARA INTERACCIÓN CON HERO ========== */
+.hero-content,
+.hero-content * {
+  pointer-events: auto !important;
+  /* CORREGIDO: auto para evitar problemas de scroll */
+  touch-action: auto !important;
+}
+
+.hero-content h1,
+.hero-content p {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  cursor: text !important;
+}
+
+/* Asegurar que las floating cards no interfieren con el scroll */
+.floating-card {
+  pointer-events: none !important;
+  /* REMOVIDO: touch-action restrictivo */
+}
+
+/* El botón de demo y otros elementos interactivos deben funcionar */
+.hero-buttons a,
+.hero-buttons button,
+.cta-button,
+.btn-primary,
+.btn-secondary {
+  pointer-events: auto !important;
+  /* CORREGIDO: auto para evitar bloqueos */
+  touch-action: auto !important;
+  cursor: pointer !important;
+  z-index: 200 !important;
+}
+
+/* ========== 13. FIXES CRÍTICOS PARA MENÚ MÓVIL - NUEVOS ========== */
+@media (max-width: 768px) {
+  
+  /* FORZAR CREACIÓN DE ELEMENTOS SI NO EXISTEN */
+  .header-content::after {
+    content: "";
+    display: none;
+  }
+
+  /* ASEGURAR QUE LA HAMBURGUESA SE VE */
+  .mobile-menu-toggle {
+    /* Backup por si falla el grid */
+    position: absolute !important;
+    right: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    /* Forzar visibilidad total */
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1001 !important;
+  }
+
+  /* BACKUP: Si el menú no aparece, usar posición absoluta */
+  .mobile-nav {
+    /* Asegurar que siempre esté en el lugar correcto */
+    position: fixed !important;
+    top: 0 !important;
+    left: -100% !important;
+    z-index: 999 !important;
+    /* Forzar que se vea cuando esté activo */
+    transform: translateZ(0) !important;
+  }
+
+  .mobile-nav.active {
+    left: 0 !important;
+    transform: translateZ(0) !important;
+  }
+
+  /* EMERGENCY FIX: Si los enlaces no se ven */
+  .mobile-nav a {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    margin: 0.5rem 0 !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* GARANTIZAR OVERLAY FUNCIONAL */
+  .mobile-nav-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 998 !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .mobile-nav-overlay.active {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* BOTÓN CERRAR SIEMPRE VISIBLE */
+  .mobile-nav-close {
+    position: absolute !important;
+    top: 1rem !important;
+    right: 1rem !important;
+    z-index: 1001 !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+  }
+}
+
+
+/* ========== 14. DEBUG MODE - ACTIVAR PARA TROUBLESHOOTING ========== */
+/*
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    background: red !important;
+    border: 3px solid yellow !important;
+  }
+  
+  .mobile-nav {
+    border: 5px solid green !important;
+  }
+  
+  .mobile-nav a {
+    border: 2px solid blue !important;
+    background: purple !important;
+  }
+  
+  .mobile-nav-overlay {
+    background: rgba(255, 0, 0, 0.5) !important;
+  }
+}
+*/
+/* ===== 1) X con aspecto flúor azul y siempre visible ===== */
+@media (max-width: 768px) {
+  /* Asegura la jerarquía sobre el header */
+  .mobile-nav-overlay { z-index: 1200 !important; }
+  .mobile-nav        { z-index: 1201 !important; }
+
+  /* Botón X */
+  .mobile-nav-close {
+    position: fixed !important;  /* fuera del stacking del panel */
+    top: calc(12px + env(safe-area-inset-top)) !important;
+    right: calc(12px + env(safe-area-inset-right)) !important;
+    z-index: 1202 !important;
+
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    font-size: 1.8rem !important;
+    line-height: 1 !important;
+
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(0, 179, 164, 0.5) !important;
+    color: var(--primary-500) !important; /* flúor azul */
+    text-shadow: 0 0 8px var(--primary-500) !important;
+
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .mobile-nav-close:hover,
+  .mobile-nav-close:focus,
+  .mobile-nav-close:active {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: var(--primary-400) !important;
+    color: var(--primary-400) !important;
+    text-shadow: 0 0 10px var(--primary-400) !important;
+    transform: none !important;
+    outline: none !important;
+  }
+}
+
+/* ===== 2) Opciones SIN efectos (hover/focus/active) ===== */
+@media (max-width: 768px) {
+  .mobile-nav a,
+  .mobile-nav a:hover,
+  .mobile-nav a:focus,
+  .mobile-nav a:active,
+  .mobile-nav a:focus-visible {
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.15) !important;
+    color: var(--neutral-300) !important;
+    transform: none !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1) !important;
+    outline: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Por si en otra regla se animaban al abrir el menú */
+  .mobile-nav.active a { animation: none !important; }
+}
+
+/* (No tocamos .mobile-nav .btn-primary / .mobile-cta para que el CTA quede igual) */
+/* ===== 3) Ocultar burbuja de cookies mientras el menú está abierto ===== */
+@media (max-width: 768px) {
+  body.menu-open .cookie-bubble {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(20px) !important;
+  }
+}
+/* Estado global cuando el footer está a la vista */
+body.at-footer .cookie-bubble,
+body.at-footer .grecaptcha-badge {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(120%) !important;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+/* Su estado normal fuera del footer */
+.cookie-bubble,
+.grecaptcha-badge {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+/* Elementos flotantes a ocultar cuando el footer esté visible */
+.footer-hideable,
+.grecaptcha-badge {
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+/* Footer en vista: ocultar todo lo marcado + recaptcha */
+body.at-footer .footer-hideable,
+body.at-footer .grecaptcha-badge {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(120%) !important;
+}
+
+/* Ya que el menú móvil también debe ocultar la burbuja si está abierta */
+@media (max-width: 768px) {
+  body.menu-open .footer-hideable {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(20px) !important;
+  }
+}

@@ -1,0 +1,29 @@
+# Archivo: /backend/config/.htaccess
+# Protección del directorio de configuración
+# Este archivo previene el acceso directo a los archivos PHP de configuración
+
+# Denegar acceso a todos los archivos
+<Files "*">
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+# Alternativa más moderna (Apache 2.4+)
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+
+# Prevenir listado de directorio
+Options -Indexes
+
+# Protección específica para archivos PHP y de configuración
+<FilesMatch "\.(php|ini|conf|config)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevenir acceso directo a config.php específicamente
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>

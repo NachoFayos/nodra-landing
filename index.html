@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nodra Soluciones Digitales</title>
+  <link rel="stylesheet" href="assets/css/styleindex.css">
+  <link rel="stylesheet" href="assets/css/critical-mobile-fixes.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script
+	  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+	  crossorigin="anonymous"></script>
+ 
+	<!-- Cambia 6LcZu9QUAAAAACaj-WBiVIQUlr94vfCC8DUpIanS por tu clave de sitio web -->
+  <script src="https://www.google.com/recaptcha/api.js?render=RECAPTCHA_SITE_KEY"></script>
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+  </div>
+
+  <!-- Header -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-content">
+      <!-- Espacio izquierdo para centrar logo -->
+      <div class="header-left"></div>
+      
+      <!-- Logo centrado -->
+      <a href="#" class="logo">
+        <img src="assets/img/logonodrapngblanco.png" alt="Nodra Soluciones Digitales" style="height:40px; width:auto; display:block;">
+      </a>
+      
+      <!-- Navegación Desktop -->
+      <nav class="desktop-nav">
+        <ul class="nav">
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#about">Sobre Nosotros</a></li>
+          <li><a href="#testimonials">Testimonios</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Botón CTA Desktop -->
+      <a href="#" class="cta-button desktop-cta" id="demo-btn">Solicitar Demo</a>
+      
+      <!-- Espacio derecho (hamburguesa se crea aquí dinámicamente) -->
+      <div class="header-right"></div>
+    </div>
+  </div>
+</header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content fade-in">
+          <h1>El futuro de la atención al cliente es inteligente</h1>
+          <p>Revoluciona tu negocio con asistentes virtuales potenciados por IA. Automatización avanzada, resultados excepcionales.</p>
+          <div class="hero-buttons">
+            <a href="#" class="btn-primary" id="get-started">Comenzar Ahora</a>
+            <a href="#services" class="btn-secondary">Explorar Servicios</a>
+          </div>
+        </div>
+        <div class="hero-visual fade-in">
+          <div class="floating-card">
+            <div class="card-icon">AI</div>
+            <h4>Automatización Inteligente</h4>
+            <p>Flujos optimizados</p>
+          </div>
+          <div class="floating-card">
+            <div class="card-icon">⚡</div>
+            <h4>Disponibilidad total</h4>
+            <p>Respuestas inteligentes 24/7</p>
+          </div>
+          <div class="floating-card">
+            <div class="card-icon">🔒</div>
+            <h4>Seguridad Total</h4>
+            <p>Cumplimiento GDPR</p>
+          </div>
+          <div class="floating-card">
+            <div class="card-icon">🎨</div>
+            <h4>Personalización Avanzada</h4>
+            <p>Configuración a medida</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Servicios <span class="gradient-text">Premium</span></h2>
+        <p>Soluciones de IA diseñadas para empresas que buscan la excelencia en automatización</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card available fade-in" onclick="window.location.href='asistente-whatsapp.html'">
+          <div class="service-icon">
+            <img src="assets/img/index/logowhatsapp.png" alt="Asistente IA para WhatsApp">
+          </div>
+          <h3>Asistente IA para WhatsApp</h3>
+          <p>Automatiza la atención al cliente desde WhatsApp con respuestas inteligentes y flujos personalizados.</p>
+          <a href="asistente-whatsapp.html" class="service-link">Ver más detalles →</a>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <img src="assets/img/index/logoia.png" alt="Asistente IA para web">
+          </div>
+          <h3>Asistente IA para web</h3>
+          <p>Integra un asistente conversacional en tu página web para resolver dudas y captar oportunidades.</p>
+          <span class="service-link service-link-disabled">Próximamente</span>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <img src="assets/img/index/logojerarquico.png" alt="Chatbot jerárquico">
+          </div>
+          <h3>Chatbot jerárquico</h3>
+          <p>Guía al usuario mediante opciones estructuradas para soporte, ventas o procesos internos.</p>
+          <span class="service-link service-link-disabled">Próximamente</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content fade-in">
+        <div class="about-header">
+          <h2>Sobre <span class="gradient-text">Nosotros</span></h2>
+          <p class="about-subtitle">Una startup con visión de futuro, comprometida con la transformación digital</p>
+        </div>
+        
+        <div class="about-grid">
+          <div class="about-text">
+            <div class="about-story fade-in">
+              <h3>Nuestra Misión</h3>
+              <p>En Nodra creemos que la tecnología debe liberar el potencial humano, no reemplazarlo. Somos una startup especializada en automatización inteligente que permite a las empresas y sus equipos concentrarse en lo que realmente importa: crear valor, innovar y construir relaciones significativas con sus clientes.</p>
+            </div>
+            
+            <div class="about-values fade-in">
+              <h3>Nuestros Valores</h3>
+              <div class="values-list">
+                <div class="value-item">
+                  
+                  <div class="value-content">
+                    <h4>Innovación Constante</h4>
+                    <p>Desarrollamos soluciones que van un paso adelante, anticipándonos a las necesidades del mercado.</p>
+                  </div>
+                </div>
+                <div class="value-item">
+                  <div class="value-content">
+                    <h4>Colaboración Humana</h4>
+                    <p>La tecnología potencia a las personas, no las sustituye. Creamos herramientas que amplifican las capacidades humanas.</p>
+                  </div>
+                </div>
+                <div class="value-item">
+                  <div class="value-content">
+                    <h4>Excelencia Técnica</h4>
+                    <p>Cada línea de código, cada algoritmo y cada interfaz están diseñados con los más altos estándares de calidad.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="about-visual fade-in">
+            <div class="stats-container">
+              <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Reducción en tareas repetitivas</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Disponibilidad de nuestros asistentes</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">+500</div>
+                <div class="stat-label">Horas de desarrollo ahorradas</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Cumplimiento GDPR</div>
+              </div>
+            </div>
+            
+            <div class="vision-card">
+              <h4>Nuestra Visión</h4>
+              <p>"Ser el partner tecnológico que libere el talento humano para tareas de mayor valor añadido, transformando la manera en que las empresas interactúan con sus clientes a través de la automatización inteligente."</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-cta fade-in">
+          <h3>¿Listo para automatizar y liberar tu potencial?</h3>
+          <p>Descubre cómo nuestras soluciones pueden transformar tu negocio y permitir que tu equipo se enfoque en lo verdaderamente estratégico.</p>
+          <a href="#contact" class="btn-primary">Hablemos de tu proyecto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="use-cases" id="testimonials">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>Cómo transformamos <span class="gradient-text">tu negocio</span></h2>
+      <p>Descubre cómo diferentes sectores aprovechan nuestras soluciones de automatización inteligente</p>
+    </div>
+    
+    <div class="use-cases-grid">
+      
+      <div class="use-case-card fade-in">
+        <div class="use-case-header">
+          <div class="use-case-icon">📚</div>
+          <div class="use-case-info">
+            <h4>Centro de Estudios / Instituto</h4>
+            <div class="use-case-role">Sector Educativo</div>
+          </div>
+        </div>
+        <div class="use-case-content">
+          <h5>Automatización inteligente del proceso de matriculación</h5>
+          <ul class="benefit-list">
+            <li>Resolución instantánea de dudas sobre cursos, horarios y requisitos</li>
+            <li>Captación de leads educativos 24/7 sin perder oportunidades</li>
+            <li>Liberación del equipo administrativo para tareas de mayor valor</li>
+            <li>Seguimiento personalizado de cada proceso de inscripción</li>
+          </ul>
+        </div>
+        <div class="impact-metrics">
+          <span class="metric">+60% captación de leads</span>
+          <span class="metric">-80% consultas repetitivas</span>
+        </div>
+      </div>
+
+      <div class="use-case-card fade-in">
+        <div class="use-case-header">
+          <div class="use-case-icon">🐕</div>
+          <div class="use-case-info">
+            <h4>Centro Veterinario</h4>
+            <div class="use-case-role">Sector Salud Animal</div>
+          </div>
+        </div>
+        <div class="use-case-content">
+          <h5>Gestión automática de citas y atención 24/7</h5>
+          <ul class="benefit-list">
+            <li>Gestión inteligente de citas y recordatorios de vacunación</li>
+            <li>Atención inmediata para consultas sobre síntomas básicos</li>
+            <li>Información instantánea sobre servicios, precios y horarios</li>
+            <li>Seguimiento post-consulta y cuidados en casa</li>
+          </ul>
+        </div>
+        <div class="impact-metrics">
+          <span class="metric">+40% citas gestionadas</span>
+          <span class="metric">24/7 disponibilidad</span>
+        </div>
+      </div>
+
+      <div class="use-case-card fade-in">
+        <div class="use-case-header">
+          <div class="use-case-icon">🏨</div>
+          <div class="use-case-info">
+            <h4>Hotel Boutique</h4>
+            <div class="use-case-role">Sector Hotelero</div>
+          </div>
+        </div>
+        <div class="use-case-content">
+          <h5>Automatización de reservas y experiencia de huésped</h5>
+          <ul class="benefit-list">
+            <li>Gestión inteligente de reservas y disponibilidad</li>
+            <li>Atención personalizada antes, durante y después de la estancia</li>
+            <li>Información instantánea sobre servicios y actividades locales</li>
+            <li>Resolución rápida de incidencias y solicitudes especiales</li>
+          </ul>
+        </div>
+        <div class="impact-metrics">
+          <span class="metric">+35% satisfacción</span>
+          <span class="metric">-50% tiempo gestión</span>
+        </div>
+      </div>
+
+      <div class="use-case-card fade-in">
+        <div class="use-case-header">
+          <div class="use-case-icon">🛒</div>
+          <div class="use-case-info">
+            <h4>E-commerce</h4>
+            <div class="use-case-role">Comercio Online</div>
+          </div>
+        </div>
+        <div class="use-case-content">
+          <h5>Soporte instantáneo que impulsa las ventas</h5>
+          <ul class="benefit-list">
+            <li>Asistencia durante todo el proceso de compra</li>
+            <li>Resolución inmediata de dudas sobre productos</li>
+            <li>Seguimiento post-venta y gestión de devoluciones</li>
+            <li>Recomendaciones personalizadas basadas en preferencias</li>
+          </ul>
+        </div>
+        <div class="impact-metrics">
+          <span class="metric">+25% conversiones</span>
+          <span class="metric">+45% ventas cruzadas</span>
+        </div>
+      </div>
+
+      <div class="use-case-card fade-in">
+        <div class="use-case-header">
+          <div class="use-case-icon">🏥</div>
+          <div class="use-case-info">
+            <h4>Clínica Médica</h4>
+            <div class="use-case-role">Sector Sanitario</div>
+          </div>
+        </div>
+        <div class="use-case-content">
+          <h5>Gestión de citas cumpliendo RGPD</h5>
+          <ul class="benefit-list">
+            <li>Programación inteligente de citas y recordatorios</li>
+            <li>Información sobre servicios médicos y preparación</li>
+            <li>Gestión segura de datos siguiendo normativas sanitarias</li>
+            <li>Seguimiento de tratamientos y citas de revisión</li>
+          </ul>
+        </div>
+        <div class="impact-metrics">
+          <span class="metric">+50% eficiencia</span>
+          <span class="metric">100% RGPD</span>
+        </div>
+      </div>
+
+      <div class="use-case-card fade-in">
+        <div class="use-case-header">
+          <div class="use-case-icon">🎨</div>
+          <div class="use-case-info">
+            <h4>Agencia de Marketing</h4>
+            <div class="use-case-role">Servicios Profesionales</div>
+          </div>
+        </div>
+        <div class="use-case-content">
+          <h5>Liberación del equipo para tareas estratégicas</h5>
+          <ul class="benefit-list">
+            <li>Gestión automática de consultas sobre servicios</li>
+            <li>Cualificación inicial de leads y proyectos</li>
+            <li>Información detallada sobre metodologías y casos</li>
+            <li>Seguimiento de proyectos y comunicación con clientes</li>
+          </ul>
+        </div>
+        <div class="impact-metrics">
+          <span class="metric">+70% tiempo estratégico</span>
+          <span class="metric">+30% leads cualificados</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>Hablemos de tu <span class="gradient-text">proyecto</span></h2>
+      <p>Estamos aquí para ayudarte a transformar tu atención al cliente</p>
+    </div>
+
+    <form class="contact-form fade-in" 
+          id="contact-form" 
+          action="backend/mail/enviar_contacto.php" 
+          method="POST" 
+          data-recaptcha="contacto">
+
+      <div class="form-group">
+        <label for="name">Nombre completo</label>
+        <input type="text" id="name" name="nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="company">Empresa</label>
+        <input type="text" id="company" name="empresa">
+      </div>
+
+      <div class="form-group">
+        <label for="message">¿En qué podemos ayudarte?</label>
+        <textarea id="message" name="mensaje" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 <strong>Nodra Soluciones Digitales</strong> · Todos los derechos reservados · 
+        <a href="avisolegal.html" style="color: var(--primary-500); text-decoration: none;">Aviso legal</a> · 
+        <a href="politicaprivacidad.html" style="color: var(--primary-500); text-decoration: none;">Política de privacidad</a> · 
+        <a href="politicacookies.html" style="color: var(--primary-500); text-decoration: none;">Política de cookies</a>
+      </p>
+    </div>
+  </footer>
+
+<!-- Demo Modal -->
+<div class="modal" id="demo-modal">
+  <div class="modal-content">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <h2 style="color: white; margin-bottom: 2rem;">Solicita tu demo personalizada</h2>
+    
+    <form class="demo-form fade-in" 
+          id="demo-form" 
+          action="backend/mail/enviar_contacto.php" 
+          method="POST" 
+          data-recaptcha="demo">
+
+      <div class="form-group">
+        <label for="demo-name">Nombre completo</label>
+        <input type="text" id="demo-name" name="nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="demo-email">Correo electrónico</label>
+        <input type="email" id="demo-email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="demo-company">Empresa</label>
+        <input type="text" id="demo-company" name="empresa">
+      </div>
+
+      <div class="form-group">
+        <label for="demo-sector">Sector</label>
+        <input type="text" id="demo-sector" name="sector">
+      </div>
+
+      <div class="form-group">
+        <label for="demo-message">¿Qué necesitas automatizar?</label>
+        <textarea id="demo-message" name="mensaje" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">Solicitar demo</button>
+    </form>
+  </div>
+</div>
+
+  <script src="assets/js/index.js"></script>
+  <script src="assets/js/form-handler.js"></script>
+  <script src="assets/js/cookie-manager.js"></script>
+  <script src="assets/js/mobile-menu.js"></script>
+<script src="assets/js/mobile-utils.js"></script>
+<script src="assets/js/scroll-fix.js"></script>
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Para index, no hace falta config extra
+    window.initFooterUIHideables();
+  });
+</script>
+</body>
+</html>

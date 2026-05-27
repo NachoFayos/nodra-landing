@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Asistente IA para WhatsApp | Nodra Soluciones Digitales</title>
+  <link rel="stylesheet" href="assets/css/stylewhats.css">
+  <link rel="stylesheet" href="assets/css/critical-mobile-fixes.css">
+  <link rel="stylesheet" href="assets/css/whatsapp-spacing-override.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfDspwrAAAAAHfKWZk-KMfPCzcP7BAUq8s1_Vm2"></script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Animated Background -->
+    <div class="animated-bg">
+      <div class="bg-orb"></div>
+      <div class="bg-orb"></div>
+      <div class="bg-orb"></div>
+    </div>
+
+    <!-- Header con estructura idéntica a index.html -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header-content">
+          <!-- Espacio izquierdo para centrar logo -->
+          <div class="header-left"></div>
+          
+          <!-- Logo centrado -->
+          <a href="index.html" class="logo">
+            <img src="assets/img/logonodrapngblanco.png" alt="Nodra Soluciones Digitales" style="height:40px; width:auto; display:block;">
+          </a>
+          
+          <!-- Navegación Desktop -->
+          <nav class="desktop-nav">
+            <ul class="nav">
+              <li><a href="#features">Beneficios</a></li>
+              <li><a href="#comparison">Comparativa</a></li>
+              <li><a href="#nextboard">NextBoard</a></li>
+              <li><a href="#steps">Funcionamiento</a></li>
+              <li><a href="#contact">Contacto</a></li>
+            </ul>
+          </nav>
+          
+          <!-- Botón CTA Desktop -->
+          <a href="#" class="cta-button desktop-cta" id="demo-btn">Solicitar Demo</a>
+          
+          <!-- Espacio derecho (hamburguesa se crea aquí dinámicamente) -->
+          <div class="header-right"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content fade-in">
+            <h1>Atiende 24/7 en WhatsApp con tu propia IA</h1>
+            <p>Automatiza la atención al cliente con una IA entrenada exclusivamente con tu documentación. Respuestas precisas, tono de marca y datos alojados en la UE.</p>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn-primary" id="get-started">Solicitar Demo Personalizada</a>
+              <a href="#features" class="btn-secondary">Ver Beneficios</a>
+            </div>
+            <div class="dashboard-disclaimer">
+              <p>* Vista preliminar con fines demostrativos. El diseño y funcionalidades del panel final pueden variar.</p>
+            </div>
+          </div>
+          <div class="hero-visual fade-in">
+            <img src="assets/img/chatwhatsopenia.png" alt="Vista previa chat IA WhatsApp" class="whatsapp-preview">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2>Beneficios que hacen <span class="gradient-text">crecer tu negocio</span></h2>
+          <p>Una solución integral que transforma la manera en que interactúas con tus clientes en WhatsApp</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📚</div>
+            <h3>IA entrenada con tu documentación</h3>
+            <p>No es un bot genérico: cargamos tu catálogo, políticas y FAQs para que responda como si fuera tu mejor agente humano.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🎯</div>
+            <h3>Acompañamiento experto</h3>
+            <p>Monitorizamos el uso, afinamos respuestas y resolvemos incidencias. Tú sólo disfrutas del resultado.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">💰</div>
+            <h3>Consumo sin sorpresas</h3>
+            <p>Alertas automáticas de uso y transparencia de costes para que tu presupuesto esté siempre bajo control.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🔒</div>
+            <h3>Seguridad y privacidad</h3>
+            <p>Datos alojados en la UE con cifrado de nivel bancario. Cumplimiento total del RGPD.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">⚡</div>
+            <h3>Respuesta instantánea</h3>
+            <p>Tu IA responde en segundos, cualquier día del año. Mejora la experiencia del cliente sin esfuerzo.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📊</div>
+            <h3>Análisis detallado</h3>
+            <p>Métricas completas de conversaciones, satisfacción y oportunidades de mejora en tiempo real.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison" id="comparison">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2>¿Por qué Nodra es tu <span class="gradient-text">mejor opción</span>?</h2>
+          <p>Comparamos nuestra solución con las alternativas genéricas del mercado</p>
+        </div>
+        <div class="comparison-table fade-in">
+          <table>
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Nuestra Oferta Nodra</th>
+                <th>Bot Genérico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>IA GPT-4o Personalizada</td>
+                <td><span class="check">✓ Incluida y adaptada</span></td>
+                <td><span class="cross">✗ FAQ predeterminado</span></td>
+              </tr>
+              <tr>
+                <td>Entrenamiento con documentos propios</td>
+                <td><span class="check">✓ PDFs, catálogos, manuales</span></td>
+                <td><span class="cross">✗ No disponible</span></td>
+              </tr>
+              <tr>
+                <td>Panel de control profesional</td>
+                <td><span class="check">✓ WhatsApp NextBoard incluido</span></td>
+                <td><span class="cross">✗ Sin panel de gestión</span></td>
+              </tr>
+              <tr>
+                <td>Configuración a medida</td>
+                <td><span class="check">✓ Tono, personalidad, flujos</span></td>
+                <td><span class="cross">✗ Plantillas básicas</span></td>
+              </tr>
+              <tr>
+                <td>Soporte y acompañamiento</td>
+                <td><span class="check">✓ Equipo dedicado</span></td>
+                <td>Solo email / Autoservicio</td>
+              </tr>
+              <tr>
+                <td>Datos en la UE (RGPD)</td>
+                <td><span class="check">✓ Cumple normativas</span></td>
+                <td>Ubicación desconocida</td>
+              </tr>
+              <tr>
+                <td>Alertas de consumo</td>
+                <td><span class="check">✓ Control total</span></td>
+                <td><span class="cross">✗ Costes ocultos</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- WhatsApp NextBoard Section -->
+    <section class="nextboard-whatsapp" id="nextboard">
+      <div class="container">
+        <div class="nextboard-content fade-in">
+          <div class="nextboard-header">
+            <div class="nextboard-logo-container">
+              <img src="assets/img/nodranextboardblanco.png" alt="Nodra NextBoard" class="nextboard-logo-img">
+              <h2 class="nextboard-title">WhatsApp NextBoard</h2>
+            </div>
+            <p class="nextboard-subtitle">Tu centro de control inteligente para gestionar todas las conversaciones de WhatsApp desde una interfaz profesional y potente.</p>
+          </div>
+          
+          <div class="nextboard-preview fade-in">
+            <div class="dashboard-mockup">
+              <div class="dashboard-header">
+                <div class="dashboard-nav">
+                  <div class="nav-item active" data-section="dashboard">Dashboard</div>
+                  <div class="nav-item" data-section="conversations">Conversaciones</div>
+                  <div class="nav-item" data-section="metrics">Métricas</div>
+                  <div class="nav-item" data-section="settings">Configuración</div>
+                </div>
+                <div class="user-profile">Admin</div>
+              </div>
+              <div class="dashboard-content">
+                <!-- DASHBOARD SECTION -->
+                <div class="dashboard-section" id="dashboard-section">
+                  <div class="stats-row">
+                    <div class="stat-card">
+                      <div class="stat-number">2,847</div>
+                      <div class="stat-label">Conversaciones hoy</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-number">94%</div>
+                      <div class="stat-label">Resueltas por IA</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-number">1.2s</div>
+                      <div class="stat-label">Tiempo respuesta</div>
+                    </div>
+                  </div>
+                  <div class="dashboard-widgets">
+                    <div class="widget recent-activity">
+                      <h4>Actividad Reciente</h4>
+                      <div class="activity-item">
+                        <div class="activity-icon">📞</div>
+                        <div class="activity-details">
+                          <div class="activity-title">Consulta sobre horarios resuelta</div>
+                          <div class="activity-time">Hace 2 minutos</div>
+                        </div>
+                      </div>
+                      <div class="activity-item">
+                        <div class="activity-icon">💰</div>
+                        <div class="activity-details">
+                          <div class="activity-title">Solicitud de presupuesto capturada</div>
+                          <div class="activity-time">Hace 5 minutos</div>
+                        </div>
+                      </div>
+                      <div class="activity-item">
+                        <div class="activity-icon">❓</div>
+                        <div class="activity-details">
+                          <div class="activity-title">Pregunta técnica derivada a humano</div>
+                          <div class="activity-time">Hace 8 minutos</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="widget quick-stats">
+                      <h4>Resumen del Día</h4>
+                      <div class="quick-stat-item">
+                        <span class="quick-stat-label">Satisfacción promedio:</span>
+                        <span class="quick-stat-value">4.8/5 ⭐</span>
+                      </div>
+                      <div class="quick-stat-item">
+                        <span class="quick-stat-label">Leads generados:</span>
+                        <span class="quick-stat-value">47</span>
+                      </div>
+                      <div class="quick-stat-item">
+                        <span class="quick-stat-label">Consultas resueltas:</span>
+                        <span class="quick-stat-value">2,681</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CONVERSATIONS SECTION -->
+                <div class="dashboard-section hidden" id="conversations-section">
+                  <div class="conversations-header">
+                    <div class="search-filters">
+                      <input type="text" placeholder="Buscar conversaciones..." class="search-input" readonly>
+                      <select class="filter-select" disabled>
+                        <option>Todas las conversaciones</option>
+                        <option>Resueltas</option>
+                        <option>Pendientes</option>
+                        <option>Derivadas</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="conversations-list">
+                    <div class="conversation-item">
+                      <div class="conversation-avatar">🏢</div>
+                      <div class="conversation-details">
+                        <div class="conversation-name">Empresa Logística SL</div>
+                        <div class="conversation-last">¿Ofrecen servicios de automatización para inventarios?</div>
+                        <div class="conversation-meta">Hace 3 min • 4 mensajes</div>
+                      </div>
+                      <div class="conversation-status resolved">✓</div>
+                    </div>
+                    <div class="conversation-item">
+                      <div class="conversation-avatar">👩</div>
+                      <div class="conversation-details">
+                        <div class="conversation-name">María García</div>
+                        <div class="conversation-last">Necesito integrar WhatsApp con mi CRM actual</div>
+                        <div class="conversation-meta">Hace 7 min • 2 mensajes</div>
+                      </div>
+                      <div class="conversation-status active">●</div>
+                    </div>
+                    <div class="conversation-item">
+                      <div class="conversation-avatar">👨</div>
+                      <div class="conversation-details">
+                        <div class="conversation-name">Carlos Ruiz</div>
+                        <div class="conversation-last">Quiero una demo del asistente de WhatsApp</div>
+                        <div class="conversation-meta">Hace 18 min • 3 mensajes</div>
+                      </div>
+                      <div class="conversation-status pending">⏳</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- METRICS SECTION -->
+                <div class="dashboard-section hidden" id="metrics-section">
+                  <div class="metrics-grid">
+                    <div class="metric-card">
+                      <h4>Volumen de Conversaciones</h4>
+                      <div class="metric-chart">
+                        <div class="chart-bar" style="height: 60%"></div>
+                        <div class="chart-bar" style="height: 80%"></div>
+                        <div class="chart-bar" style="height: 45%"></div>
+                        <div class="chart-bar" style="height: 90%"></div>
+                        <div class="chart-bar" style="height: 75%"></div>
+                        <div class="chart-bar" style="height: 95%"></div>
+                        <div class="chart-bar" style="height: 85%"></div>
+                      </div>
+                      <div class="metric-value">+23% vs mes anterior</div>
+                    </div>
+                    <div class="metric-card">
+                      <h4>Tasa de Resolución</h4>
+                      <div class="circular-progress">
+                        <div class="progress-ring">
+                          <div class="progress-fill" style="stroke-dasharray: 251 314;"></div>
+                        </div>
+                        <div class="progress-text">94%</div>
+                      </div>
+                      <div class="metric-value">Objetivo: 85%</div>
+                    </div>
+                    <div class="metric-card">
+                      <h4>Satisfacción del Cliente</h4>
+                      <div class="satisfaction-stars">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star half">★</span>
+                      </div>
+                      <div class="metric-value">4.8/5 (247 valoraciones)</div>
+                    </div>
+                    <div class="metric-card">
+                      <h4>Tiempo de Respuesta</h4>
+                      <div class="response-time-display">
+                        <div class="time-number">1.2</div>
+                        <div class="time-unit">segundos</div>
+                      </div>
+                      <div class="metric-value">Promedio últimas 24h</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SETTINGS SECTION -->
+                <div class="dashboard-section hidden" id="settings-section">
+                  <div class="settings-grid">
+                    <div class="settings-card">
+                      <h4>🤖 Personalización del Comportamiento</h4>
+                    </div>
+                    <div class="settings-card">
+                      <h4>🌐 Configuración Regional</h4>
+                    </div>
+                    <div class="settings-card">
+                      <h4>⏰ Horarios y Notificaciones</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nextboard-features-grid">
+            <div class="nextboard-feature fade-in">
+              <div class="nextboard-feature-icon">📋</div>
+              <h4>Historial Completo</h4>
+              <p>Accede a todas las conversaciones entre tu asistente IA y los clientes. Búsqueda avanzada por fecha, cliente o tema.</p>
+            </div>
+            <div class="nextboard-feature fade-in">
+              <div class="nextboard-feature-icon">🔍</div>
+              <h4>Filtros Inteligentes</h4>
+              <p>Encuentra conversaciones específicas con filtros por estado, tipo de consulta, satisfacción del cliente y más.</p>
+            </div>
+            <div class="nextboard-feature fade-in">
+              <div class="nextboard-feature-icon">📊</div>
+              <h4>Métricas en Tiempo Real</h4>
+              <p>Dashboard con KPIs clave: volumen de conversaciones, tasa de resolución, tiempo de respuesta y satisfacción.</p>
+            </div>
+            <div class="nextboard-feature fade-in">
+              <div class="nextboard-feature-icon">🎯</div>
+              <h4>Oportunidades de Mejora</h4>
+              <p>Identifica patrones y áreas de optimización basadas en el análisis automático de las interacciones.</p>
+            </div>
+          </div>
+
+          <div class="nextboard-cta fade-in">
+            <p class="nextboard-cta-text">
+              <strong>Incluido con tu asistente de WhatsApp</strong> - Sin coste adicional
+            </p>
+            <a href="#contact" class="nextboard-cta-button">Acceder al Demo del Panel</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps" id="steps">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2>Puesta en marcha en <span class="gradient-text">3 pasos</span></h2>
+          <p>Un proceso sencillo y guiado para tener tu asistente funcionando en menos de una semana</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card fade-in">
+            <h4>Reúne tu documentación</h4>
+            <p>Envíanos tu catálogo, políticas y cualquier material relevante. Cuanta mejor información, mejor será la IA.</p>
+          </div>
+          <div class="step-card fade-in">
+            <h4>Entrenamiento y pruebas</h4>
+            <p>Nuestro equipo entrena el modelo, diseña los flujos y valida la calidad contigo en menos de 7 días.</p>
+          </div>
+          <div class="step-card fade-in">
+            <h4>Despliegue y optimización</h4>
+            <p>Conectamos tu número oficial y monitorizamos métricas en tiempo real para afinar respuestas continuamente.</p>
+          </div>
+        </div>
+        <div class="fade-in" style="text-align: center; margin-top: 3rem;">
+          <div style="background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2rem; max-width: 600px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; color: var(--neutral-300); margin-bottom: 1rem;">
+              <strong>Gestionar 3.000 consultas al mes</strong> te costará en torno a <strong style="color: var(--whatsapp-green);">0,11 € por interacción</strong>
+            </p>
+            <p style="color: var(--neutral-400);">
+              Ahorra tiempo y libera a tu equipo para tareas de mayor valor añadido
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+      <div class="container">
+        <div class="fade-in">
+          <h2>¿Listo para revolucionar tu atención al cliente?</h2>
+          <p>Solicita una demo personalizada y descubre cómo tu empresa puede transformar la atención al cliente con inteligencia artificial en WhatsApp.</p>
+          <a href="mailto:contacto@nodra.es?subject=Demo%20WhatsApp%20IA" class="cta-button-white" id="cta-demo">Solicitar Demo Gratuita</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>© 2025 Nodra Soluciones Digitales · Todos los derechos reservados · 
+          <a href="avisolegal.html" style="color: var(--primary-500); text-decoration: none;">Aviso legal</a> · 
+          <a href="politicaprivacidad.html" style="color: var(--primary-500); text-decoration: none;">Política de privacidad</a> · 
+          <a href="politicacookies.html" style="color: var(--primary-500); text-decoration: none;">Política de cookies</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Demo Modal -->
+  <div class="modal" id="demo-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h2 style="color: white; margin-bottom: 1.5rem;">Solicita tu demo personalizada</h2>
+
+      <form id="demo-form" 
+            action="backend/mail/enviar_contacto.php" 
+            method="POST" 
+            data-recaptcha="demo">
+
+        <div class="form-group">
+          <label for="demo-name">Nombre completo</label>
+          <input type="text" id="demo-name" name="nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label for="demo-email">Correo electrónico</label>
+          <input type="email" id="demo-email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="demo-company">Empresa</label>
+          <input type="text" id="demo-company" name="empresa">
+        </div>
+
+        <div class="form-group">
+          <label for="demo-sector">Sector</label>
+          <input type="text" id="demo-sector" name="sector">
+        </div>
+
+        <div class="form-group">
+          <label for="demo-message">¿Qué necesitas automatizar en WhatsApp?</label>
+          <textarea id="demo-message" name="mensaje" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-button">Solicitar demo</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts en el orden correcto como en index.html -->
+  <script src="assets/js/whatsapp.js"></script>
+  <script src="assets/js/form-handler.js"></script>
+  <script src="assets/js/cookie-manager.js"></script>
+  <script src="assets/js/mobile-menu.js"></script>
+  <script src="assets/js/mobile-utils.js"></script>
+  <script src="assets/js/scroll-fix.js"></script>
+  
+  <!-- Script para ocultar UI al llegar al footer -->
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Inicializar funcionalidad de ocultar elementos en el footer
+      if (window.initFooterUIHideables) {
+        window.initFooterUIHideables();
+      }
+      
+      // Función para detectar cuando el footer está visible
+      const footer = document.querySelector('.footer');
+      if (footer) {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              document.body.classList.add('at-footer');
+            } else {
+              document.body.classList.remove('at-footer');
+            }
+          });
+        }, observerOptions);
+
+        observer.observe(footer);
+      }
+    });
+  </script>
+</body>
+</html>

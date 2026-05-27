@@ -1,0 +1,76 @@
+/* ========== SOLO CORRECCIÓN DE ESPACIADOS ENTRE SECCIONES - WHATSAPP MÓVIL ========== */
+/* Este archivo SOLO modifica el padding vertical de las secciones principales */
+/* Cargar DESPUÉS de todos los demás CSS */
+
+/* ========== TABLET Y MÓVIL (768px) ========== */
+@media screen and (max-width: 768px) {
+  
+  /* SOLO modificar padding vertical de las secciones principales */
+  body section.features {
+    padding-top: 2rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  
+  body section.comparison {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  
+  body section.nextboard-whatsapp {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  
+  body section.steps {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  
+  body section.cta-section {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  
+  /* Hero - solo ajustar padding inferior */
+  body .hero {
+    padding-bottom: 1.5rem !important;
+  }
+}
+
+/* ========== MÓVILES PEQUEÑOS (480px) ========== */
+@media screen and (max-width: 480px) {
+  
+  body section.features {
+    padding-top: 1.8rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  body section.comparison,
+  body section.nextboard-whatsapp,
+  body section.steps,
+  body section.cta-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  body .hero {
+    padding-bottom: 1.2rem !important;
+  }
+}
+
+/* ========== LANDSCAPE MÓVIL ========== */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  
+  body section.features,
+  body section.comparison,
+  body section.nextboard-whatsapp,
+  body section.steps,
+  body section.cta-section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  body .hero {
+    padding-bottom: 1rem !important;
+  }
+}
